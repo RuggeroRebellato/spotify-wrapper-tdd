@@ -1,0 +1,46 @@
+{
+  "name": "spotify-wrapper-tdd",
+  "version": "1.0.0",
+  "description": "simple wrapper lib spotify api using TDD",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint src/**/*.js",
+    "precommit": "eslint src/**/*.js && npm run test",
+    "prepush": "npm run lint && npm run test:coverage",
+    "test": "mocha ./src/**/*.spec.js --require babel-register",
+    "test:tdd":
+      "mocha --watch ./src/**/*.spec.js --require babel-register --watch",
+    "test:coverage": "nyc npm test"
+  },
+  "nyc": {
+    "check-coverage": true,
+    "functions": 80,
+    "lines": 80,
+    "reporter": ["text", "html"],
+    "exclude": ["**/*.spec.js"],
+    "cache": false
+  },
+  "devDependencies": {
+    "babel-preset-env": "^1.6.1",
+    "babel-register": "^6.26.0",
+    "chai": "^4.1.2",
+    "eslint": "^4.9.0",
+    "eslint-config-airbnb-base": "^12.0.2",
+    "eslint-plugin-import": "^2.7.0",
+    "husky": "^0.14.3",
+    "mocha": "^4.0.1",
+    "nyc": "^11.2.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RuggeroRebellato/js-tdd.git"
+  },
+  "keywords": ["js", "tdd", "library"],
+  "author":
+    "Ruggero Rebellato <ruggerorebellato@gmail.com> (https://ruggerorebellato.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/RuggeroRebellato/js-tdd/issues"
+  },
+  "homepage": "https://github.com/RuggeroRebellato/js-tdd#readme"
+}
